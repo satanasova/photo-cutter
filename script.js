@@ -48,6 +48,7 @@ function touchEnd() {
 
 // resize frame with slider
 document.addEventListener('DOMContentLoaded', () => {
+  resizeSlider.setAttribute('max', photoToCrop.offsetWidth + 50);
   resizeSlider.value = (+resizeSlider.min + +resizeSlider.max) / 2
   frame.style.width = (+resizeSlider.min + +resizeSlider.max) / 2 + 'px'
   frame.style.height = (+resizeSlider.min + +resizeSlider.max) / 2 + 'px'
