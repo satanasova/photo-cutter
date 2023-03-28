@@ -10,7 +10,6 @@ canvas {
   margin-top: 100px;
   width: 100%; }
   .main .photo-container {
-    border: 1px solid #005CC8;
     max-width: 500px;
     position: relative;
     user-select: none; }

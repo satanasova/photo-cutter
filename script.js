@@ -47,19 +47,23 @@ function touchEnd() {
 
 
 // resize frame with slider
-document.addEventListener('DOMContentLoaded', () => {
-  resizeSlider.setAttribute('max', photoToCrop.offsetWidth + 50);
-  resizeSlider.value = (+resizeSlider.min + +resizeSlider.max) / 2
-  frame.style.width = (+resizeSlider.min + +resizeSlider.max) / 2 + 'px'
-  frame.style.height = (+resizeSlider.min + +resizeSlider.max) / 2 + 'px'
-
-})
+document.addEventListener('DOMContentLoaded', initFrameSize)
 
 resizeSlider.addEventListener('input', resizeFrame);
 
 function resizeFrame() {
   frame.style.width = resizeSlider.value + 'px';
   frame.style.height = resizeSlider.value + 'px';
+}
+
+function initFrameSize() {
+  setTimeout(() => {
+    resizeSlider.setAttribute('max', photoToCrop.offsetWidth + 50);
+    resizeSlider.value = (+resizeSlider.min + +resizeSlider.max) / 2
+    frame.style.width = (+resizeSlider.min + +resizeSlider.max) / 2 + 'px'
+    frame.style.height = (+resizeSlider.min + +resizeSlider.max) / 2 + 'px'
+  }, 100)
+  
 }
 
 
@@ -125,12 +129,9 @@ uploadInput.addEventListener('change', (e) => {
     // image.src = objectUrl;
     // photoContainer.appendChild(image)
     
-    setTimeout(() => {
-      resizeSlider.setAttribute('max', photoToCrop.width + 50);
-      resizeSlider.value = (+resizeSlider.min + +resizeSlider.max) / 2
-      resizeFrame()
-      console.log(photoToCrop.naturalWidth);
-    }, 100)
+
+    initFrameSize();
+
 
   }
 })
