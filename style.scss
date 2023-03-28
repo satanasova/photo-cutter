@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+canvas {
+  width: 25mm;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  width: 100%;
+  min-height: 500px;
+  // visibility: hidden;
+
+  .photo-container {
+    max-width: 500px;
+    position: relative;
+    user-select: none;
+  
+    img {
+      width: 100%;
+      user-select: none;
+  
+    }
+  
+    .frame {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: block;
+      width: 275px;
+      height: 275px;
+      border: 2px solid deepskyblue;
+      border-radius: 50%;
+      // overflow: hidden;
+      cursor: move;
+    }
+  }
+
+    .resize-slider {
+      -webkit-appearance: slider-vertical;
+      cursor: pointer;
+      display: flex;
+    }
+  
+}
+
+.result {
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 150px;
+
+  .upload-input {
+    display: none;
+  }
+
+  .upload-btn,
+  .crop-btn, 
+  .download-btn {
+    cursor: pointer;
+    // display: none;
+  }
+
+  .download-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: rgb(240,240,240);
+    color: black;
+    // border-style: outset;
+    padding: 2px 6px;
+    border: 1px solid black;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13.333px;
+    border-radius: 2px;
+  }
+
+  .cropped-photo-container {
+    margin-top: 20px;
+  }
+}
+
+.printPrep {
+  margin: 0 auto;
+  margin: 30px 34%;
+  border: 2px solid deepskyblue;
+  width: 50.8mm; // 2"
+  height: 76.2mm; // 3i"
+}
