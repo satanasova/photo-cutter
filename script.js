@@ -10,8 +10,12 @@ uploadInput = document.querySelector('.upload-input')
 
 
 // drag frame
-frame.addEventListener('mousedown', mouseDown);
-window.addEventListener('mouseup', mouseUp);
+// frame.addEventListener('mousedown', mouseDown);
+// frame.addEventListener('touchstart', mouseDown);
+frame.bind('mousedown touchstart', mouseDown)
+frame.bind('mouseup touchsend', mouseDown)
+// window.addEventListener('mouseup', mouseUp);
+// window.addEventListener('touchend', mouseUp);
 
 function frameMove(e) {
   frame.style.top = e.clientY - frame.parentElement.offsetTop - (frame.offsetHeight / 2) + 'px';
@@ -19,11 +23,14 @@ function frameMove(e) {
 }
 
 function mouseDown() {
-  window.addEventListener('mousemove', frameMove);
+  window.bind('mousemove touchmove', frameMove)
+  // window.addEventListener('mousemove', frameMove);
+  // window.addEventListener('touchmove', frameMove);
 }
 
 function mouseUp() {
   window.removeEventListener('mousemove', frameMove)
+  window.removeEventListener('touchmove', frameMove)
 }
 
 
@@ -76,6 +83,7 @@ function cropPhoto() {
   // ctx.drawImage(photoToCrop, sx / photoRatio , sy / photoRatio , frame.offsetWidth / photoRatio, frame.offsetHeight / photoRatio , 0, 0, frame.offsetWidth , frame.offsetHeight)
   ctx.drawImage(photoToCrop, sx / photoRatio , sy / photoRatio , frame.offsetWidth / photoRatio, frame.offsetHeight / photoRatio , 0, 0, canvas.width, canvas.height)
   
+  downloadBtn.click();
 }
 
 
@@ -104,6 +112,12 @@ uploadInput.addEventListener('change', (e) => {
     // image.src = objectUrl;
     // photoContainer.appendChild(image)
     
+    setTimeout(() => {
+      resizeSlider.setAttribute('max', photoToCrop.width + 50);
+      resizeSlider.value = (+resizeSlider.min + +resizeSlider.max) / 2
+      resizeFrame()
+      console.log(photoToCrop.naturalWidth);
+    }, 100)
 
   }
 })

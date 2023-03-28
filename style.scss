@@ -11,11 +11,13 @@ canvas {
   justify-content: center;
   margin-top: 100px;
   width: 100%;
-  min-height: 500px;
   // visibility: hidden;
 
   .photo-container {
+    border: 1px solid #005CC8;
+    // min-width: 100px;
     max-width: 500px;
+    // min-height: 500px;
     position: relative;
     user-select: none;
   
@@ -32,7 +34,7 @@ canvas {
       display: block;
       width: 275px;
       height: 275px;
-      border: 2px solid deepskyblue;
+      border: 2px solid #005CC8;
       border-radius: 50%;
       // overflow: hidden;
       cursor: move;
@@ -82,10 +84,3 @@ canvas {
   }
 }
 
-.printPrep {
-  margin: 0 auto;
-  margin: 30px 34%;
-  border: 2px solid deepskyblue;
-  width: 50.8mm; // 2"
-  height: 76.2mm; // 3i"
-}
