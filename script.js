@@ -10,27 +10,39 @@ uploadInput = document.querySelector('.upload-input')
 
 
 // drag frame
-// frame.addEventListener('mousedown', mouseDown);
-// frame.addEventListener('touchstart', mouseDown);
-frame.bind('mousedown touchstart', mouseDown)
-frame.bind('mouseup touchsend', mouseDown)
-// window.addEventListener('mouseup', mouseUp);
-// window.addEventListener('touchend', mouseUp);
+frame.addEventListener('mousedown', mouseDown);
+frame.addEventListener('touchstart', touchStart);
 
-function frameMove(e) {
+window.addEventListener('mouseup', mouseUp);
+window.addEventListener('touchend', touchEnd);
+
+function mouseMove(e) {
   frame.style.top = e.clientY - frame.parentElement.offsetTop - (frame.offsetHeight / 2) + 'px';
   frame.style.left = e.clientX - frame.parentElement.offsetLeft - (frame.offsetWidth / 2) + 'px';
 }
 
+function touchMove(e) {
+  const touchLoc = e.targetTouches[0];
+  frame.style.top = touchLoc.clientY - frame.parentElement.offsetTop - (frame.offsetHeight / 2) + 'px';
+  frame.style.left = touchLoc.clientX - frame.parentElement.offsetLeft - (frame.offsetWidth / 2) + 'px';
+}
+
 function mouseDown() {
-  window.bind('mousemove touchmove', frameMove)
-  // window.addEventListener('mousemove', frameMove);
+  window.addEventListener('mousemove', mouseMove);
   // window.addEventListener('touchmove', frameMove);
 }
 
 function mouseUp() {
-  window.removeEventListener('mousemove', frameMove)
-  window.removeEventListener('touchmove', frameMove)
+  window.removeEventListener('mousemove', mouseMove)
+  // window.removeEventListener('touchmove', frameMove)
+}
+
+function touchStart(e) {
+  window.addEventListener('touchmove', touchMove);
+}
+
+function touchEnd() {
+  window.removeEventListener('touchmove', touchMove)
 }
 
 
