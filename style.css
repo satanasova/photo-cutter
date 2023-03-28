@@ -23,7 +23,7 @@ canvas {
       display: block;
       width: 275px;
       height: 275px;
-      border: 2px solid #005CC8;
+      border: 2px solid #367AF6;
       border-radius: 50%;
       cursor: move; }
   .main .resize-slider {
@@ -38,8 +38,31 @@ canvas {
   .result .upload-input,
   .result .download-btn {
     display: none; }
-  .result .upload-btn,
+  .result .upload-btn {
+    cursor: pointer;
+    margin-right: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #13AA52;
+    touch-action: manipulation;
+    outline: 0; }
   .result .crop-btn {
-    cursor: pointer; }
+    cursor: pointer;
+    margin-right: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #367AF6;
+    touch-action: manipulation;
+    outline: 0; }
   .result .cropped-photo-container {
     margin-top: 20px; }

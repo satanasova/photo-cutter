@@ -11,13 +11,9 @@ canvas {
   justify-content: center;
   margin-top: 100px;
   width: 100%;
-  // visibility: hidden;
 
   .photo-container {
-    // border: 1px solid #005CC8;
-    // min-width: 100px;
     max-width: 500px;
-    // min-height: 500px;
     position: relative;
     user-select: none;
   
@@ -34,9 +30,8 @@ canvas {
       display: block;
       width: 275px;
       height: 275px;
-      border: 2px solid #005CC8;
+      border: 2px solid #367AF6;
       border-radius: 50%;
-      // overflow: hidden;
       cursor: move;
     }
   }
@@ -59,9 +54,34 @@ canvas {
     display: none;
   }
 
-  .upload-btn,
+  .upload-btn {
+    cursor: pointer;
+    margin-right: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 6px;
+    color: #fff;
+    background-color:  #13AA52;
+    touch-action: manipulation;
+    outline: 0;
+  }
+
   .crop-btn {
     cursor: pointer;
+    margin-right: 5px;
+    white-space: nowrap;
+    text-decoration: none;
+    border: none;
+    padding: 6px 14px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 6px;
+    color: #fff;
+    background-color:  #367AF6;
+    touch-action: manipulation;
+    outline: 0;
   }
 
   .cropped-photo-container {
