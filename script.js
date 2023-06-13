@@ -8,7 +8,8 @@ downloadBtn = document.querySelector('.download-btn'),
 uploadBtn = document.querySelector('.upload-btn'),
 uploadInput = document.querySelector('.upload-input')
 
-window.parent.postMessage('click','*');
+window.addEventListener('click', () => window.parent.postMessage('click','*'));
+
 
 // drag frame
 frame.addEventListener('mousedown', mouseDown);
